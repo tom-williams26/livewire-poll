@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Poll;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\Livewire;
 
 class CreatePoll extends Component
 {
@@ -64,5 +65,6 @@ class CreatePoll extends Component
         );
 
         $this->reset(['title', 'options']);
+        $this->dispatch('pollCreated');
     }
 }
