@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Option;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
@@ -14,5 +15,10 @@ class PollsList extends Component
             ->latest()->get();
 
         return view('livewire.polls-list', ['pollsList' => $pollsList]);
+    }
+
+    public function vote(Option $option)
+    {
+        $option->votes()->create();
     }
 }
